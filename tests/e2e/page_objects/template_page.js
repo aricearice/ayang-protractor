@@ -6,7 +6,7 @@
 
   TemplatePage.samplePageMethod = function() {
     var your_name_field = TemplatePage.find(TemplatePage.name_input);
-    TemplatePage.setInput(your_name_field, "Jon Snow");
+    Base.setInput(your_name_field, "Jon Snow");
     console.log('Hello World. My First Test!');
     return;
   };

@@ -2,9 +2,9 @@ var Locators = {
   //SAMPLE PAGE LOCATORS
 
   NAME_INPUT_LOCATOR: {
-    elemType: 'model',
+    elemType: 'css',
     name: 'Your Name Input Field',
-    elem: 'yourName'
+    elem: 'input[ng-model="yourName"]'
   },
   GREETING_DIV_LOCATOR: {
     elemType: 'css',

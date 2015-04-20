@@ -24,29 +24,27 @@
       }
     } else if (elemDict.elemType === 'id') {
       return by.id(elemDict.elem);
-    } else if (elemDict.elemType === 'model') {
-      return by.model(elemDict.elem);
     } else if (elemDict.elemType === 'link text') {
       return by.linkText(elemDict.elem);
     } else if (elemDict.elemType === 'options') {
       return by.options(elemDict.elem);
     } else if (elemDict.elemType === 'buttonText') {
       return by.buttonText(elemDict.elem);
-    } else if (elemDict.elemType === 'repeater') {
-      return by.repeater(elemDict.elem);
+    } else {
+      console.log('Sorry, the element type '+ elemDict.elemType + ' is not supported by this framework, yet');
     }
   };
   Base.find = function(elemDict, desiredText) {
-    return element(Base.findBy(elemDict, desiredText));
+    return browser.driver.findElement(Base.findBy(elemDict, desiredText));
   };
   Base.findArray = function(elemDict, desiredText) {
-    return element.all(Base.findBy(elemDict, desiredText));
+    return browser.driver.findElements(Base.findBy(elemDict, desiredText));
   };
   Base.setInput = function(field, fieldInput) {
     return field.sendKeys(fieldInput);
   };
   Base.elementPresence = function(elemDict) {
-    return Base.find(elemDict).isPresent();
+    return browser.driver.isElementPresent(Base.findBy(elemDict));
   };
   Base.elementDisappeared = function(elemDict) {
     return Base.elementPresence(elemDict).then(function(presenceOfElement) {
@@ -66,8 +64,7 @@
     return foundElement.getAttribute('src');
   };
   Base.textOf = function(elemDict, message) {
-    var foundElement = Base.find(elemDict);
-    return foundElement.getText().then(function(promise) {
+    return Base.find(elemDict).getText().then(function(promise) {
       if (message) {
         console.log(message);
       } else {

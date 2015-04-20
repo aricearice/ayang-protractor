@@ -31,6 +31,7 @@ exports.config = {
   },
   framework: 'jasmine2',
   onPrepare: function() {
+//     browser.ignoreSynchronization = true; // allow for testing on non-Angular apps
     var caps = browser.getCapabilities().then(function(promise) { 
           browserName = promise.caps_.browserName;
           browserVersion = promise.caps_.version;
