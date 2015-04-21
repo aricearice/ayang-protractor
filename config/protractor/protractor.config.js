@@ -32,16 +32,11 @@ exports.config = {
   framework: 'jasmine2',
   onPrepare: function() {
     browser.ignoreSynchronization = true; // allow for testing on non-Angular apps
-    var caps = browser.getCapabilities().then(function(promise) { 
-          browserName = promise.caps_.browserName;
-          browserVersion = promise.caps_.version;
-          strAppend = '_' + browserName + '-' + browserVersion; // Directories should be stamped with browser name and version
-        }),
-        Faker = require('faker'),
+    var Faker = require('faker'),
         jasmineReporters = require('jasmine-reporters'),
 
         // Create directories for logs to live in:
-        logDirName = 'generic_test_log'+ new Date().toISOString().replace(/[^a-z0-9\_]/gi,'') + strAppend,
+        logDirName = 'generic_test_log'+ new Date().toISOString().replace(/[^a-z0-9\_]/gi,'') ,
         // Name of the log directory file should have time stamp, browser name, and version.
         mainlogdir = configHelper.mainLogDir,
         mkdirp = require('mkdirp'),
