@@ -2,5 +2,5 @@
 
 echo 'Running webdriver-manager...'
 
-./node_modules/protractor/bin/webdriver-manager update
-./node_modules/protractor/bin/webdriver-manager start
+webdriver-manager update
+webdriver-manager start
