@@ -2,5 +2,5 @@
 
 echo 'Running webdriver-manager...'
 
-webdriver-manager update
-webdriver-manager start
+./node_modules/.bin/webdriver-manager update
+./node_modules/.bin/webdriver-manager start
