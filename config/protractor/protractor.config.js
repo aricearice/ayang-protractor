@@ -32,7 +32,12 @@ exports.config = {
   framework: 'jasmine2',
   onPrepare: function() {
     browser.ignoreSynchronization = true; // allow for testing on non-Angular apps
-    var Faker = require('faker'),
+    var caps = browser.getCapabilities().then(function(promise) { 
+          browserName = promise.caps_.browserName;
+          browserVersion = promise.caps_.version;
+          strAppend = '_' + browserName + '-' + browserVersion; // Directories should be stamped with browser name and version
+        }),
+        Faker = require('faker'),
         jasmineReporters = require('jasmine-reporters'),
 
         // Create directories for logs to live in:

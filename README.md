@@ -12,5 +12,5 @@
     ```
 3. On a separate terminal window, run this command:
     ```bash
-      protractor ./config/protractor/protractor.config.js --baseUrl=https://angularjs.org
+      ./node_modules/.bin/protractor ./config/protractor/protractor.config.js --baseUrl=https://angularjs.org
     ```
