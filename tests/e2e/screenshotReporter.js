@@ -19,10 +19,10 @@ var ScreenshotReporter = function(dir_) {
     }
 
     // takes screenshot on each failed expect
-    var originalAddMatcherResult = jasmine.Spec.prototype.addMatcherResult;
-    jasmine.Spec.prototype.addMatcherResult = function() {
+    var originalAddMatcherResult = jasmine.Spec.prototype.addExpectationResult;
+    jasmine.Spec.prototype.addExpectationResult= function() {
         ++index;
-        if (!arguments[0].passed()) {
+        if (!arguments[0]) {
             screenshot(this.description, index);
         }
         return originalAddMatcherResult.apply(this, arguments);
